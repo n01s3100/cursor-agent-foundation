@@ -1,56 +1,59 @@
 # Cursor agent foundation
 
-Portable **baseline** for AI-assisted engineering: tiered ceremony, pre-build loop, CONTEXT/ADR links, architecture vocabulary ([Matt Pocock skills](https://github.com/mattpocock/skills)), parallel-agent handoffs, and completion hygiene.
+Single **source of truth** for baseline AI engineering standards. Every app repo gets the same starting rules; product-specific rules are added **in that app’s repo** later.
 
-Consumer projects layer **their own** `.cursor/rules/*.mdc`, `AGENTS.md`, and product docs **on top** of this kit.
+**For AI agents:** open **[AGENTS.md](AGENTS.md)** first, then **[FOR_AGENTS.md](FOR_AGENTS.md)** for the full bootstrap workflow.
 
----
-
-## Contents
-
-| Path | Purpose |
-|------|---------|
-| [`docs/CURSOR_AGENT_STANDARDS.md`](docs/CURSOR_AGENT_STANDARDS.md) | Full universal playbook |
-| [`.cursor/rules/cursor-agent-standards.mdc`](.cursor/rules/cursor-agent-standards.mdc) | Cursor project rule (`alwaysApply`) — copies into consumer repos |
-| [`USER_RULES_SNIPPET.md`](USER_RULES_SNIPPET.md) | Paste into **Cursor → Settings → Rules → User Rules** per machine |
-| [`templates/AGENTS.md.template`](templates/AGENTS.md.template) | Optional starter `AGENTS.md` in new projects |
-| [`scripts/apply-to-repo.sh`](scripts/apply-to-repo.sh) | Copy playbook + rule into a target repo |
-| [`FOR_AGENTS.md`](FOR_AGENTS.md) | Short workflow for assistants bootstrapping a new workspace |
+**For humans:** clone once, run `scripts/apply-to-repo.sh` on each project (see below).
 
 ---
 
-## Quick start — new local project
+## What this repo is
+
+| File / folder | Purpose |
+|---------------|---------|
+| [AGENTS.md](AGENTS.md) | **Entry point** — what to do when you only have this link |
+| [FOR_AGENTS.md](FOR_AGENTS.md) | Step-by-step workflows (bootstrap, already bootstrapped, edit foundation) |
+| [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md) | Full playbook (tiers, pre-build, CONTEXT/ADR, architecture, parallel agents) |
+| [.cursor/rules/cursor-agent-standards.mdc](.cursor/rules/cursor-agent-standards.mdc) | Cursor rule copied into consumer repos |
+| [scripts/apply-to-repo.sh](scripts/apply-to-repo.sh) | Installs playbook + rule into another project |
+| [templates/AGENTS.md.template](templates/AGENTS.md.template) | Starter `AGENTS.md` for consumer repos |
+| [USER_RULES_SNIPPET.md](USER_RULES_SNIPPET.md) | Paste into Cursor **User Rules** once per machine |
+
+---
+
+## Human quick start — new project
 
 ```bash
 git clone https://github.com/n01s3100/cursor-agent-foundation.git
-~/cursor-agent-foundation/scripts/apply-to-repo.sh /path/to/your/new-or-existing-app
-cp ~/cursor-agent-foundation/templates/AGENTS.md.template /path/to/your/new-or-existing-app/AGENTS.md
-cd /path/to/your/new-or-existing-app && git add docs .cursor/rules AGENTS.md && git commit -m "Bootstrap Cursor agent foundation"
+~/cursor-agent-foundation/scripts/apply-to-repo.sh /path/to/your-app
+cp ~/cursor-agent-foundation/templates/AGENTS.md.template /path/to/your-app/AGENTS.md
+cd /path/to/your-app && git add docs .cursor/rules AGENTS.md && git commit -m "Bootstrap Cursor agent foundation"
 ```
 
-Then add stack-specific `.cursor/rules/*.mdc` in that project as needed.
+Then add stack-specific `.cursor/rules/*.mdc` in **your app repo** as needed.
 
 ---
 
-## Publish remotely (team / agents fetching)
+## Giving an agent only this link
 
-Create a **private or public** git remote (GitHub, GitLab, etc.), push this repo, and:
+Say something like:
 
-- Humans clone it once OR
-- Automated scripts/`curl` **raw files** using pinned refs (recommended for reproducibility):
+> Use https://github.com/n01s3100/cursor-agent-foundation — read **AGENTS.md** and bootstrap standards into `~/path/to/my-app`.
 
-  `https://raw.githubusercontent.com/n01s3100/cursor-agent-foundation/v1.0.0/docs/CURSOR_AGENT_STANDARDS.md`
-
-After you push, paste the canonical clone URL into your team playbook or **`FOR_AGENTS.md`** forks.
+The agent should clone (or fetch), run **`scripts/apply-to-repo.sh`**, add **`AGENTS.md`**, commit in **your app**, then follow **`docs/CURSOR_AGENT_STANDARDS.md`** in that app.
 
 ---
 
-## Relationship to `~/.cursor/agent-bootstrap`
+## Pinned raw files (no clone)
 
-If you maintained an older **`~/.cursor/agent-bootstrap`** copy on disk, prefer **this git repo** as the single source of truth. Update bootstrap from here or delete duplicates when comfortable.
+- Standards: `https://raw.githubusercontent.com/n01s3100/cursor-agent-foundation/v1.0.0/docs/CURSOR_AGENT_STANDARDS.md`
+- Cursor rule: `https://raw.githubusercontent.com/n01s3100/cursor-agent-foundation/v1.0.0/.cursor/rules/cursor-agent-standards.mdc`
+
+Prefer tag **`v1.0.0`** (or latest tag) for reproducible bootstrap.
 
 ---
 
 ## Versioning
 
-Tag releases (`v1.0.0`, …) when you change **`docs/CURSOR_AGENT_STANDARDS.md`** materially so downstream projects know when to refresh their copies (`apply-to-repo.sh` again or merge changes).
+Tag releases when `docs/CURSOR_AGENT_STANDARDS.md` changes materially. Consumer repos can re-run `apply-to-repo.sh` to refresh.

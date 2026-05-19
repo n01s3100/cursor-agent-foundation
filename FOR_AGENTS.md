@@ -1,35 +1,102 @@
-# Instructions for AI agents — using this repo
+# Instructions for AI agents
 
-Treat this repository as **read-only canon** unless the human asks you to change it.
+**Repository:** https://github.com/n01s3100/cursor-agent-foundation  
+**Pinned release (optional):** tag `v1.0.0`
 
-## Before starting greenfield work in an empty folder
+This repo is **read-only canon** unless the human asks you to change the foundation itself.
 
-1. **Read** [`docs/CURSOR_AGENT_STANDARDS.md`](docs/CURSOR_AGENT_STANDARDS.md) (or clone/fetch from the remote URL the human gave you).
-2. **Apply** the kit into the new project directory by running:
+---
+
+## Workflow A — Bootstrap a consumer project (most common)
+
+Use when the human wants a **new or existing app repo** to get the same baseline rules and docs.
+
+### Inputs you need
+
+- **Target path** — root of the app repo (e.g. `~/my-app`). If missing, **ask once**: “Which directory should I apply the foundation to?”
+- **This foundation** — clone if you don’t have it:
+
+  ```bash
+  git clone https://github.com/n01s3100/cursor-agent-foundation.git /tmp/cursor-agent-foundation
+  ```
+
+### Steps (do in order)
+
+1. **Clone** this repo (or use an existing clone on the machine).
+2. **Apply** files into the **target** project (not into this foundation repo):
 
    ```bash
-   /path/to/cursor-agent-foundation/scripts/apply-to-repo.sh /path/to/new/project
+   /tmp/cursor-agent-foundation/scripts/apply-to-repo.sh /path/to/target-project
    ```
 
-   If this repo lives at a known clone path on the human’s machine, prefer that clone over improvising shortened copies.
+   This creates:
 
-3. **Optional hub file:** copy [`templates/AGENTS.md.template`](templates/AGENTS.md.template) to the new repo as `AGENTS.md` so developers know where the baseline lives.
+   - `target-project/docs/CURSOR_AGENT_STANDARDS.md`
+   - `target-project/.cursor/rules/cursor-agent-standards.mdc`
 
-4. **Global Cursor behaviour:** remind the human to paste [`USER_RULES_SNIPPET.md`](USER_RULES_SNIPPET.md) into Cursor **User Rules** once per machine/workspace policy (those settings do not live in git).
+3. **Add hub file** (recommended):
 
-## After foundations are copied
+   ```bash
+   cp /tmp/cursor-agent-foundation/templates/AGENTS.md.template /path/to/target-project/AGENTS.md
+   ```
 
-Layer **product- or stack-specific** rules in **that** project:
+   If `AGENTS.md` already exists, **merge** the template’s pointer block at the top; do not delete project-specific content.
 
-- `.cursor/rules/*.mdc` (narrow globs where possible)
-- `AGENTS.md` sections
-- Any existing `CONTEXT.md`, `docs/adr/`, etc.
+4. **Commit in the target repo** (unless the human said not to):
 
-Do not fork or duplicate the universal document inside the consumer repo except by running `apply-to-repo.sh` — one source avoids drift unless the human intentionally edits their copy.
+   ```bash
+   cd /path/to/target-project
+   git add docs/CURSOR_AGENT_STANDARDS.md .cursor/rules/cursor-agent-standards.mdc AGENTS.md
+   git commit -m "Bootstrap Cursor agent foundation from cursor-agent-foundation"
+   ```
 
-## Fetching without a local clone
+5. **Work in the target repo** using [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md) (Tier A/B/C, pre-build loop, etc.). Add **project-specific** `.cursor/rules/*.mdc` only when the stack or product needs them.
 
-After this repo is pushed to GitHub/GitLab:
+6. **Once per machine (remind human):** [USER_RULES_SNIPPET.md](USER_RULES_SNIPPET.md) → Cursor **Settings → Rules → User Rules**. Git cannot store that setting.
 
-- Humans or agents may use **`git sparse-checkout`** or **`curl`/raw URLs** for `docs/CURSOR_AGENT_STANDARDS.md` and the `.mdc` only.
-- Prefer a **pinned tag or commit SHA** when the human asks for reproducible bootstrap.
+### Without a local clone (fetch only)
+
+Copy pinned files into the target (adjust paths):
+
+```bash
+TAG=v1.0.0
+BASE=https://raw.githubusercontent.com/n01s3100/cursor-agent-foundation/$TAG
+mkdir -p /path/to/target-project/docs /path/to/target-project/.cursor/rules
+curl -fsSL "$BASE/docs/CURSOR_AGENT_STANDARDS.md" -o /path/to/target-project/docs/CURSOR_AGENT_STANDARDS.md
+curl -fsSL "$BASE/.cursor/rules/cursor-agent-standards.mdc" -o /path/to/target-project/.cursor/rules/cursor-agent-standards.mdc
+```
+
+Then add `AGENTS.md` from the template (curl or copy from clone). Prefer **`apply-to-repo.sh`** when a shell is available — fewer mistakes.
+
+---
+
+## Workflow B — Consumer project already bootstrapped
+
+If the **target** repo already contains `docs/CURSOR_AGENT_STANDARDS.md` and `.cursor/rules/cursor-agent-standards.mdc`:
+
+- **Do not** re-copy from foundation unless the human asks to refresh or sync versions.
+- Follow **that repo’s** `AGENTS.md` and any extra `.cursor/rules/*.mdc`.
+- Use [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md) in the **target** as the playbook (content should match this foundation).
+
+---
+
+## Workflow C — Edit the foundation repo itself
+
+Only when the human explicitly wants to change **shared** standards for all future projects:
+
+- Edit `docs/CURSOR_AGENT_STANDARDS.md` and/or `.cursor/rules/cursor-agent-standards.mdc` here.
+- Commit, push, and suggest a new **git tag** if the change is breaking or worth pinning.
+- Tell the human which consumer repos should re-run `apply-to-repo.sh` or merge updates.
+
+---
+
+## After bootstrap — how to work (summary)
+
+From [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md):
+
+- **Tier A:** trivial fix → one sentence, then implement.
+- **Tier B+:** pre-build block (problem, approach, benefits, risks, checkbox plan); human **go** before behaviour/API changes.
+- **Parallel subagents:** one lead; written handoff before sharing a seam.
+- **Done:** lint/tests; **commit, push, deploy** if the target repo documents how.
+
+Layer **product rules** in the **consumer** repo only (`CONTEXT.md`, `docs/adr/`, extra `.mdc` files).
