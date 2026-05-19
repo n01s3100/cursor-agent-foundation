@@ -22,9 +22,9 @@ Consumer projects layer **their own** `.cursor/rules/*.mdc`, `AGENTS.md`, and pr
 ## Quick start — new local project
 
 ```bash
-git clone <this-repo-url>           # once per machine / team
-/path/to/cursor-agent-foundation/scripts/apply-to-repo.sh /path/to/your/new-or-existing-app
-cp /path/to/cursor-agent-foundation/templates/AGENTS.md.template /path/to/your/new-or-existing-app/AGENTS.md
+git clone https://github.com/n01s3100/cursor-agent-foundation.git
+~/cursor-agent-foundation/scripts/apply-to-repo.sh /path/to/your/new-or-existing-app
+cp ~/cursor-agent-foundation/templates/AGENTS.md.template /path/to/your/new-or-existing-app/AGENTS.md
 cd /path/to/your/new-or-existing-app && git add docs .cursor/rules AGENTS.md && git commit -m "Bootstrap Cursor agent foundation"
 ```
 
@@ -39,7 +39,7 @@ Create a **private or public** git remote (GitHub, GitLab, etc.), push this repo
 - Humans clone it once OR
 - Automated scripts/`curl` **raw files** using pinned refs (recommended for reproducibility):
 
-  `https://raw.githubusercontent.com/<org>/<repo>/<tag>/docs/CURSOR_AGENT_STANDARDS.md`
+  `https://raw.githubusercontent.com/n01s3100/cursor-agent-foundation/v1.0.0/docs/CURSOR_AGENT_STANDARDS.md`
 
 After you push, paste the canonical clone URL into your team playbook or **`FOR_AGENTS.md`** forks.
 
