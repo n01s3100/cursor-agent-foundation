@@ -1,6 +1,11 @@
 # Agents
 
-**Universal engineering standards:** read [`docs/CURSOR_AGENT_STANDARDS.md`](docs/CURSOR_AGENT_STANDARDS.md) — tiers, pre-build loop, CONTEXT/ADR, architecture vocabulary, parallel agents, completion.
+**Universal engineering standards:** [`docs/CURSOR_AGENT_STANDARDS.md`](docs/CURSOR_AGENT_STANDARDS.md) — tiers, pre-build loop, completion.
+
+**Mandatory skills (when triggers apply — see standards doc):**
+
+- [grill-with-docs](skills/engineering/grill-with-docs/SKILL.md) — domain clarity, Tier C, stress-test plans
+- [improve-codebase-architecture](skills/engineering/improve-codebase-architecture/SKILL.md) — refactors, boundaries, deepening
 
 **Always-on Cursor rule:** `.cursor/rules/cursor-agent-standards.mdc`.
 

@@ -1,5 +1,5 @@
 ---
-description: Universal agent standards — tiers, pre-build, parallel work, completion (details in docs/CURSOR_AGENT_STANDARDS.md)
+description: Universal agent standards — tiers, mandatory grill/architecture skills, completion
 alwaysApply: true
 ---
 
@@ -9,7 +9,9 @@ Follow **`docs/CURSOR_AGENT_STANDARDS.md`** for full detail. Other `.cursor/rule
 
 ## Always
 
-- **Tier A (trivial):** one-sentence problem + “done when”; skip the pre-build essay.
-- **Tier B+:** before coding, give problem, approach, benefits, risks, and a **checkbox plan**; offer **two options** when a wrong choice is expensive (migrations, security, money, new boundaries). Wait for human **go** when behaviour, data, or public contracts change.
-- **Parallel agents / subagents:** one lead integrates; before multiple implementers share a seam, write a **handoff** (goal, non-goals, allowed files/boundaries, interface to preserve, merge order).
-- **Done:** lint/tidy touched files; tests or explicit manual steps; update consumers when public contracts change; then **commit, push, deploy** if this repo documents how (**ask** if unknown).
+- **Tier A (trivial):** one-sentence problem + “done when”; skip pre-build and mandatory skills.
+- **Tier B+:** before coding, give problem, approach, benefits, risks, and a **checkbox plan**; wait for human **go** when behaviour, data, or public contracts change.
+- **grill-with-docs (mandatory when triggered):** Tier C, fuzzy domain, plan stress-test, or first CONTEXT — read and follow **`skills/engineering/grill-with-docs/SKILL.md`**; one question at a time; update CONTEXT.md inline.
+- **improve-codebase-architecture (mandatory when triggered):** refactors, boundaries, deepening — read and follow **`skills/engineering/improve-codebase-architecture/SKILL.md`**; candidates first, then grilling loop; use LANGUAGE.md vocabulary.
+- **Parallel agents:** one lead integrates; written handoff before multiple implementers share a seam.
+- **Done:** lint/tidy touched files; tests or explicit manual steps; update consumers when contracts change; **commit, push, deploy** if this repo documents how (**ask** if unknown).

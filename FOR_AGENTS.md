@@ -33,6 +33,7 @@ Use when the human wants a **new or existing app repo** to get the same baseline
 
    - `target-project/docs/CURSOR_AGENT_STANDARDS.md`
    - `target-project/.cursor/rules/cursor-agent-standards.mdc`
+   - `target-project/skills/engineering/grill-with-docs/` and `improve-codebase-architecture/` (mandatory workflows)
 
 3. **Add hub file** (recommended):
 
@@ -46,13 +47,16 @@ Use when the human wants a **new or existing app repo** to get the same baseline
 
    ```bash
    cd /path/to/target-project
-   git add docs/CURSOR_AGENT_STANDARDS.md .cursor/rules/cursor-agent-standards.mdc AGENTS.md
+   git add docs/CURSOR_AGENT_STANDARDS.md .cursor/rules/cursor-agent-standards.mdc skills AGENTS.md
    git commit -m "Bootstrap Cursor agent foundation from cursor-agent-foundation"
    ```
 
-5. **Work in the target repo** using [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md) (Tier A/B/C, pre-build loop, etc.). Add **project-specific** `.cursor/rules/*.mdc` only when the stack or product needs them.
+5. **Work in the target repo** using [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md). **Mandatory skills** (not optional when triggered):
+   - **Tier C / fuzzy domain / plan stress-test** → [skills/engineering/grill-with-docs/SKILL.md](skills/engineering/grill-with-docs/SKILL.md) in the **target** repo.
+   - **Refactors / boundaries / deepening** → [skills/engineering/improve-codebase-architecture/SKILL.md](skills/engineering/improve-codebase-architecture/SKILL.md) in the **target** repo.
+6. Add **project-specific** `.cursor/rules/*.mdc` only when the stack or product needs them.
 
-6. **Once per machine (remind human):** [USER_RULES_SNIPPET.md](USER_RULES_SNIPPET.md) → Cursor **Settings → Rules → User Rules**. Git cannot store that setting.
+7. **Once per machine (remind human):** [USER_RULES_SNIPPET.md](USER_RULES_SNIPPET.md) → Cursor **Settings → Rules → User Rules**. Git cannot store that setting.
 
 ### Without a local clone (fetch only)
 
@@ -94,8 +98,9 @@ Only when the human explicitly wants to change **shared** standards for all futu
 
 From [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md):
 
-- **Tier A:** trivial fix → one sentence, then implement.
-- **Tier B+:** pre-build block (problem, approach, benefits, risks, checkbox plan); human **go** before behaviour/API changes.
+- **Tier A:** trivial fix → one sentence, then implement (no mandatory skills).
+- **Tier B+:** pre-build block; human **go** before behaviour/API changes; run **grill** / **architecture** skills when triggers apply.
+- **Tier C:** **grill-with-docs** before implementation; architecture skill when shaping modules.
 - **Parallel subagents:** one lead; written handoff before sharing a seam.
 - **Done:** lint/tests; **commit, push, deploy** if the target repo documents how.
 

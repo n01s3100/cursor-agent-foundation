@@ -14,9 +14,10 @@ Single **source of truth** for baseline AI engineering standards. Every app repo
 |---------------|---------|
 | [AGENTS.md](AGENTS.md) | **Entry point** — what to do when you only have this link |
 | [FOR_AGENTS.md](FOR_AGENTS.md) | Step-by-step workflows (bootstrap, already bootstrapped, edit foundation) |
-| [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md) | Full playbook (tiers, pre-build, CONTEXT/ADR, architecture, parallel agents) |
+| [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md) | Full playbook (tiers, pre-build, **mandatory** skill triggers) |
+| [skills/engineering/](skills/engineering/) | Vendored **grill-with-docs** + **improve-codebase-architecture** |
 | [.cursor/rules/cursor-agent-standards.mdc](.cursor/rules/cursor-agent-standards.mdc) | Cursor rule copied into consumer repos |
-| [scripts/apply-to-repo.sh](scripts/apply-to-repo.sh) | Installs playbook + rule into another project |
+| [scripts/apply-to-repo.sh](scripts/apply-to-repo.sh) | Installs playbook + rule + skills into another project |
 | [templates/AGENTS.md.template](templates/AGENTS.md.template) | Starter `AGENTS.md` for consumer repos |
 | [USER_RULES_SNIPPET.md](USER_RULES_SNIPPET.md) | Paste into Cursor **User Rules** once per machine |
 
@@ -47,10 +48,7 @@ The agent should clone (or fetch), run **`scripts/apply-to-repo.sh`**, add **`AG
 
 ## Pinned raw files (no clone)
 
-- Standards: `https://raw.githubusercontent.com/n01s3100/cursor-agent-foundation/v1.0.0/docs/CURSOR_AGENT_STANDARDS.md`
-- Cursor rule: `https://raw.githubusercontent.com/n01s3100/cursor-agent-foundation/v1.0.0/.cursor/rules/cursor-agent-standards.mdc`
-
-Prefer tag **`v1.0.0`** (or latest tag) for reproducible bootstrap.
+Prefer **`scripts/apply-to-repo.sh`** so `skills/engineering/` is copied. For pinned raw files, use the latest tag (e.g. **`v1.1.0`**) on GitHub.
 
 ---
 
