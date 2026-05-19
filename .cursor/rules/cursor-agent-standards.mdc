@@ -1,0 +1,15 @@
+---
+description: Universal agent standards — tiers, pre-build, parallel work, completion (details in docs/CURSOR_AGENT_STANDARDS.md)
+alwaysApply: true
+---
+
+# Cursor agent — universal standards
+
+Follow **`docs/CURSOR_AGENT_STANDARDS.md`** for full detail. Other `.cursor/rules/*.mdc` files in this repo **add** stack- or product-specific requirements on top.
+
+## Always
+
+- **Tier A (trivial):** one-sentence problem + “done when”; skip the pre-build essay.
+- **Tier B+:** before coding, give problem, approach, benefits, risks, and a **checkbox plan**; offer **two options** when a wrong choice is expensive (migrations, security, money, new boundaries). Wait for human **go** when behaviour, data, or public contracts change.
+- **Parallel agents / subagents:** one lead integrates; before multiple implementers share a seam, write a **handoff** (goal, non-goals, allowed files/boundaries, interface to preserve, merge order).
+- **Done:** lint/tidy touched files; tests or explicit manual steps; update consumers when public contracts change; then **commit, push, deploy** if this repo documents how (**ask** if unknown).

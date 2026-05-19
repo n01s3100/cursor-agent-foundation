@@ -1,0 +1,11 @@
+# Agents
+
+**Universal engineering standards:** read [`docs/CURSOR_AGENT_STANDARDS.md`](docs/CURSOR_AGENT_STANDARDS.md) — tiers, pre-build loop, CONTEXT/ADR, architecture vocabulary, parallel agents, completion.
+
+**Always-on Cursor rule:** `.cursor/rules/cursor-agent-standards.mdc`.
+
+Add project-specific onboarding and stack rules below (or as additional `.cursor/rules/*.mdc`).
+
+---
+
+<!-- Project-specific sections go here -->
