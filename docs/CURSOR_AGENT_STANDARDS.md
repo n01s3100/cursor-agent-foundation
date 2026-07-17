@@ -8,6 +8,33 @@ Repo-agnostic playbook for AI agents and developers. **Stack- or product-specifi
 
 ---
 
+## Agent Skills compliance
+
+Team and engineering skills follow the open [Agent Skills specification](https://agentskills.io/specification) ([agentskills/agentskills](https://github.com/agentskills/agentskills)).
+
+| Location | Purpose |
+|----------|---------|
+| `.cursor/skills/<name>/SKILL.md` | Team workflow skills (handoff, grilling, verification, …) |
+| `skills/engineering/<name>/` | Deep vendored workflows (grill-with-docs, architecture) |
+
+**Required per skill:** folder name matches frontmatter `name`; `description` states what the skill does **and when to invoke it** (discovery triggers).
+
+**Optional frontmatter** (use when relevant): `compatibility` (e.g. `Requires gh, docker`), `metadata` (`author`, `version`), `license`.
+
+**Layout conventions:**
+
+- Keep `SKILL.md` under ~500 lines; move long reference material to `references/` or sibling `.md` files (as in `skills/engineering/`).
+- Bundle scripts in `scripts/`, templates in `assets/` when the skill needs executable or static resources.
+- Reference sibling files with relative paths from the skill root.
+
+**Validation:** run `~/agent-team-kit/scripts/validate-kit.sh` (includes `skills-ref validate` on every skill). When adding a skill via `@creator`, validate before merging.
+
+**Community examples:** browse [anthropics/skills](https://github.com/anthropics/skills) for patterns; adopt via `@team-auditor` (**Adopt / Adapt / Defer / Reject**) — do not bulk-import unrelated skills.
+
+**Further reading:** [Agent Skills overview](https://agentskills.io/home), [skill creation best practices](https://agentskills.io/skill-creation/best-practices), [Cursor Agent Skills](https://cursor.com/docs/context/skills).
+
+---
+
 ## Mandatory workflows (not optional)
 
 When a trigger applies, you **must** open and follow the linked **SKILL.md** end-to-end before writing implementation code (unless the human explicitly opts out for this task). **Tier A is exempt.**
