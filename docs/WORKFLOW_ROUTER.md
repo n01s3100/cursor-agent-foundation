@@ -16,6 +16,20 @@
 4. **pstack** playbook steps (when active — see below)
 5. User’s explicit “skip X for this task”
 
+**Always-on in bootstrapped repos:** `.cursor/rules/workflow-stack-harmony.mdc` — unified **foundation + agent team kit + pstack**, and **Tier B+ Workflow reminders** so humans do not have to remember entry points. Setup checklist: [`OUT_OF_BOX_WORKFLOW.md`](OUT_OF_BOX_WORKFLOW.md).
+
+---
+
+## Step 0 — Session start (agents, Tier B+)
+
+Unless the user already opened with **`/poteto-mode`**, a **pstack** skill, or **`@project-orchestrator`**:
+
+1. Classify tier (Step 1).
+2. On the **first substantive reply** for **Tier B or C**, include a **Workflow** line (max 2 sentences): tier, recommended **`/poteto-mode …`** or **`@project-orchestrator`**, and whether **grill-with-docs** / **improve-codebase-architecture** applies.
+3. If pstack is **not** available in this session, say so once and point to **`/add-plugin pstack`** or team **Required** install — then use foundation path (Steps 3–5 below).
+
+**Tier A:** skip Workflow line.
+
 ---
 
 ## Step 1 — Classify tier (always)
@@ -126,6 +140,8 @@ If pstack is **not installed**, use foundation pre-build + Matt skills only; sug
 
 ## For humans
 
-- **One line to start hard work:** `/poteto-mode <outcome>. Verify: <check>.`
-- **New repo:** bootstrap from [cursor-agent-foundation](https://github.com/n01s3100/cursor-agent-foundation); install pstack once per machine.
+- **You do not need to remember the stack** — on Tier B+ the agent should show a **Workflow** line with the right entry. You can still paste these anytime:
+- **Focused rigorous work:** `/poteto-mode <outcome>. Verify: <check>.`
+- **Team / backlog / multi-phase:** `@project-orchestrator <goal or status>`
+- **New repo:** bootstrap from [cursor-agent-foundation](https://github.com/n01s3100/cursor-agent-foundation); make **pstack Required** on the team marketplace (see [`OUT_OF_BOX_WORKFLOW.md`](OUT_OF_BOX_WORKFLOW.md)).
 - **Domain-heavy feature:** “Grill domain first, then poteto-mode feature with architect checkpoint.”

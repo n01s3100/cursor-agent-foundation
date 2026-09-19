@@ -8,6 +8,8 @@ if [[ "${1:-}" == "-h" || "${1:-}" == "--help" || $# -lt 1 ]]; then
   echo "Copies:" >&2
   echo "  docs/CURSOR_AGENT_STANDARDS.md" >&2
   echo "  .cursor/rules/cursor-agent-standards.mdc" >&2
+  echo "  .cursor/rules/workflow-stack-harmony.mdc" >&2
+  echo "  docs/OUT_OF_BOX_WORKFLOW.md" >&2
   echo "  skills/engineering/ (grill-with-docs + improve-codebase-architecture)" >&2
   exit 1
 fi
@@ -18,7 +20,9 @@ TARGET="$(cd "$1" && pwd)"
 mkdir -p "$TARGET/docs" "$TARGET/.cursor/rules" "$TARGET/skills/engineering"
 install -m 0644 "$ROOT/docs/CURSOR_AGENT_STANDARDS.md" "$TARGET/docs/CURSOR_AGENT_STANDARDS.md"
 install -m 0644 "$ROOT/docs/WORKFLOW_ROUTER.md" "$TARGET/docs/WORKFLOW_ROUTER.md"
+install -m 0644 "$ROOT/docs/OUT_OF_BOX_WORKFLOW.md" "$TARGET/docs/OUT_OF_BOX_WORKFLOW.md"
 install -m 0644 "$ROOT/.cursor/rules/cursor-agent-standards.mdc" "$TARGET/.cursor/rules/cursor-agent-standards.mdc"
+install -m 0644 "$ROOT/.cursor/rules/workflow-stack-harmony.mdc" "$TARGET/.cursor/rules/workflow-stack-harmony.mdc"
 rm -rf "$TARGET/skills/engineering/grill-with-docs" "$TARGET/skills/engineering/improve-codebase-architecture"
 cp -R "$ROOT/skills/engineering/grill-with-docs" "$TARGET/skills/engineering/"
 cp -R "$ROOT/skills/engineering/improve-codebase-architecture" "$TARGET/skills/engineering/"
@@ -29,7 +33,9 @@ fi
 echo "✅ Applied foundation to: $TARGET"
 echo "   - docs/CURSOR_AGENT_STANDARDS.md"
 echo "   - docs/WORKFLOW_ROUTER.md"
+echo "   - docs/OUT_OF_BOX_WORKFLOW.md"
 echo "   - .cursor/rules/cursor-agent-standards.mdc"
+echo "   - .cursor/rules/workflow-stack-harmony.mdc"
 echo "   - skills/engineering/grill-with-docs/"
 echo "   - skills/engineering/improve-codebase-architecture/"
 echo "Optional: cp \"$ROOT/templates/AGENTS.md.template\" \"$TARGET/AGENTS.md\""

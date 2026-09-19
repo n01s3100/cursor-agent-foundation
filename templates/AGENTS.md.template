@@ -1,6 +1,8 @@
 # Agents
 
-**Start here:** [`docs/WORKFLOW_ROUTER.md`](docs/WORKFLOW_ROUTER.md) — picks foundation vs **Cursor pstack** vs Matt skills (no double planning).
+**Out-of-box stack:** foundation + **agent team** (`@project-orchestrator`) + **pstack** (`/poteto-mode`) — always-on **`.cursor/rules/workflow-stack-harmony.mdc`** (Tier B+ **Workflow** reminders). Setup: [`docs/OUT_OF_BOX_WORKFLOW.md`](docs/OUT_OF_BOX_WORKFLOW.md).
+
+**Start here:** [`docs/WORKFLOW_ROUTER.md`](docs/WORKFLOW_ROUTER.md) — picks foundation vs pstack vs Matt skills (no double planning).
 
 **Standards:** [`docs/CURSOR_AGENT_STANDARDS.md`](docs/CURSOR_AGENT_STANDARDS.md)
 

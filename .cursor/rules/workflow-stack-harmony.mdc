@@ -1,0 +1,51 @@
+---
+description: Out-of-box stack — foundation + agent team + pstack (harmony, session reminders)
+alwaysApply: true
+---
+
+# Workflow stack (always on)
+
+Every bootstrapped app repo shares a **common baseline** (foundation + team kit). Product-specific rules in other `.cursor/rules/*.mdc` and sections of `AGENTS.md` layer on top as the project evolves.
+
+## Three layers — use together
+
+| Layer | Role | Start here |
+|-------|------|------------|
+| **Foundation** | Tiers, router, Matt skills, ship criteria | `docs/WORKFLOW_ROUTER.md` → `docs/CURSOR_AGENT_STANDARDS.md` |
+| **Agent team kit** | Phases, `@` subagents, slash commands | `AGENTS.md`, `.cursor/rules/team-workflow.mdc`, `@project-orchestrator` |
+| **pstack** | Rigorous Cursor playbooks | `/poteto-mode`, `/architect`, … — [pstack plugin](https://cursor.com/marketplace/cursor/pstack) |
+
+**Precedence on conflict:** this repo’s **product** `.cursor/rules` → `docs/WORKFLOW_ROUTER.md` → foundation standards → pstack playbook steps (when active).
+
+**Harmony (no double planning):**
+
+- **pstack active** (`/poteto-mode`, pstack skill, or user says poteto-mode): follow the playbook; **do not** also paste the foundation pre-build block. Still run **grill-with-docs** / **improve-codebase-architecture** when router **Step 3** triggers.
+- **Team kit active** (`@project-orchestrator`, full phase workflow): follow **team-workflow**. For Tier B+ build work inside Phase 4, prefer **`/poteto-mode`** when pstack is available instead of inventing a parallel plan.
+- **Neither active, Tier B+:** foundation pre-build + human **go** when behaviour or public contracts change.
+
+## Agent obligation — remind the human (Tier B+)
+
+On the **first substantive reply** for a **Tier B or C** task, unless the user already opened with **`/poteto-mode`**, a **pstack** skill, or **`@project-orchestrator`** (or clear team-kit command):
+
+Add a short **Workflow** line (max 2 sentences):
+
+- state **tier** (B or C)
+- recommend **entry**: `/poteto-mode <goal>. Verify: …` when pstack is available; otherwise foundation pre-build per router
+- for status, backlog, greenfield, or multi-phase delivery: **`@project-orchestrator`**
+- note if **grill-with-docs** or **improve-codebase-architecture** is likely before code
+
+**Tier A:** no Workflow line — implement and verify.
+
+If **pstack is not available** in this session, say so **once**, use the foundation path, and tell the human: **`/add-plugin pstack`** (desktop) or team admin → mark **pstack Required** on the team marketplace so Cloud Agents and Projects get it out of the box.
+
+## Default human starters (suggest in the Workflow line)
+
+```text
+/poteto-mode <outcome>. Verify: <how we know it's done>.
+```
+
+```text
+@project-orchestrator <goal or "status">
+```
+
+Tier C / fuzzy domain: grill (`skills/engineering/grill-with-docs/SKILL.md`) → then poteto-mode or `@architect with checkpoint`.

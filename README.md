@@ -15,6 +15,8 @@ Single **source of truth** for baseline AI engineering standards. Every app repo
 | [AGENTS.md](AGENTS.md) | **Entry point** — what to do when you only have this link |
 | [FOR_AGENTS.md](FOR_AGENTS.md) | Step-by-step workflows (bootstrap, already bootstrapped, edit foundation) |
 | [docs/WORKFLOW_ROUTER.md](docs/WORKFLOW_ROUTER.md) | **What to use when** — foundation + pstack + Matt skills |
+| [docs/OUT_OF_BOX_WORKFLOW.md](docs/OUT_OF_BOX_WORKFLOW.md) | **Projects/cloud setup** — pstack Required, User Rules, reminders |
+| [.cursor/rules/workflow-stack-harmony.mdc](.cursor/rules/workflow-stack-harmony.mdc) | Always-on stack harmony + Tier B+ Workflow reminders |
 | [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md) | Full playbook (tiers, pre-build, **mandatory** skill triggers) |
 | [skills/engineering/](skills/engineering/) | Vendored **grill-with-docs** + **improve-codebase-architecture** |
 | [.cursor/rules/cursor-agent-standards.mdc](.cursor/rules/cursor-agent-standards.mdc) | Cursor rule copied into consumer repos |

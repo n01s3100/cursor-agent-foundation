@@ -4,7 +4,7 @@ set -euo pipefail
 
 FOUNDATION="$(cd "$(dirname "$0")/.." && pwd)"
 APPLY="$FOUNDATION/scripts/apply-to-repo.sh"
-COMMIT_MSG="Sync cursor-agent-foundation (standards, WORKFLOW_ROUTER, skills, cursor-agent-standards.mdc)."
+COMMIT_MSG="Sync cursor-agent-foundation (WORKFLOW_ROUTER, OUT_OF_BOX, workflow-stack-harmony, skills)."
 
 # Repos used by Cursor Cloud Agents (edit paths if yours differ)
 CLOUD_REPOS=(
@@ -78,7 +78,7 @@ sync_one() {
 
   if [[ "$DRY_RUN" -eq 1 ]]; then
     echo "  [dry-run] would run: $APPLY $repo"
-    echo "  [dry-run] would git add docs/ .cursor/rules/cursor-agent-standards.mdc skills/"
+    echo "  [dry-run] would git add docs/ .cursor/rules/cursor-agent-standards.mdc .cursor/rules/workflow-stack-harmony.mdc skills/"
     echo "  [dry-run] would commit if changed; push=$DO_PUSH"
     return 0
   fi
@@ -89,7 +89,9 @@ sync_one() {
   git add \
     docs/CURSOR_AGENT_STANDARDS.md \
     docs/WORKFLOW_ROUTER.md \
+    docs/OUT_OF_BOX_WORKFLOW.md \
     .cursor/rules/cursor-agent-standards.mdc \
+    .cursor/rules/workflow-stack-harmony.mdc \
     skills/README.md \
     skills/engineering/grill-with-docs \
     skills/engineering/improve-codebase-architecture \

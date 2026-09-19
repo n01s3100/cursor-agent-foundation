@@ -5,8 +5,9 @@ alwaysApply: true
 
 # Cursor agent — universal standards
 
-1. **Route first:** read **`docs/WORKFLOW_ROUTER.md`** in this repo (foundation + [pstack](https://cursor.com/marketplace/cursor/pstack) + Matt skills — no duplicate pre-build).
-2. **Details:** **`docs/CURSOR_AGENT_STANDARDS.md`**. Other `.cursor/rules/*.mdc` here add product/stack rules on top.
+1. **Stack:** **`workflow-stack-harmony.mdc`** (foundation + agent team + pstack — session **Workflow** reminders on Tier B+).
+2. **Route first:** read **`docs/WORKFLOW_ROUTER.md`** (no duplicate pre-build when pstack is active).
+3. **Details:** **`docs/CURSOR_AGENT_STANDARDS.md`**. Other `.cursor/rules/*.mdc` add product rules on top.
 
 ## Quick rules
 
