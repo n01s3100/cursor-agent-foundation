@@ -33,6 +33,14 @@ cp ~/cursor-agent-foundation/templates/AGENTS.md.template /path/to/your-app/AGEN
 cd /path/to/your-app && git add docs .cursor/rules AGENTS.md && git commit -m "Bootstrap Cursor agent foundation"
 ```
 
+**One-shot update (AP, Risk-Manager, mullah, HD Life OS portal — apply, commit, push):**
+
+```bash
+~/cursor-agent-foundation/scripts/sync-cloud-repos.sh
+```
+
+Dry run: `sync-cloud-repos.sh --dry-run` · Commit without push: `--no-push`
+
 Then add stack-specific `.cursor/rules/*.mdc` in **your app repo** as needed.
 
 ---
