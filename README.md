@@ -2,7 +2,7 @@
 
 Single **source of truth** for baseline AI engineering standards. Every app repo gets the same starting rules; product-specific rules are added **in that app’s repo** later.
 
-**For AI agents:** open **[AGENTS.md](AGENTS.md)** first, then **[FOR_AGENTS.md](FOR_AGENTS.md)** for the full bootstrap workflow.
+**For AI agents:** in an app repo, read **`docs/WORKFLOW_ROUTER.md`** first. For bootstrap only, see **[AGENTS.md](AGENTS.md)** → **[FOR_AGENTS.md](FOR_AGENTS.md)**.
 
 **For humans:** clone once, run `scripts/apply-to-repo.sh` on each project (see below).
 
@@ -14,6 +14,7 @@ Single **source of truth** for baseline AI engineering standards. Every app repo
 |---------------|---------|
 | [AGENTS.md](AGENTS.md) | **Entry point** — what to do when you only have this link |
 | [FOR_AGENTS.md](FOR_AGENTS.md) | Step-by-step workflows (bootstrap, already bootstrapped, edit foundation) |
+| [docs/WORKFLOW_ROUTER.md](docs/WORKFLOW_ROUTER.md) | **What to use when** — foundation + pstack + Matt skills |
 | [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md) | Full playbook (tiers, pre-build, **mandatory** skill triggers) |
 | [skills/engineering/](skills/engineering/) | Vendored **grill-with-docs** + **improve-codebase-architecture** |
 | [.cursor/rules/cursor-agent-standards.mdc](.cursor/rules/cursor-agent-standards.mdc) | Cursor rule copied into consumer repos |
@@ -38,11 +39,9 @@ Then add stack-specific `.cursor/rules/*.mdc` in **your app repo** as needed.
 
 ## Giving an agent only this link
 
-Say something like:
+> Use https://github.com/n01s3100/cursor-agent-foundation — bootstrap into `~/path/to/my-app`, then in that app follow **`docs/WORKFLOW_ROUTER.md`**. For hard Cursor work use **`/poteto-mode`** if pstack is installed.
 
-> Use https://github.com/n01s3100/cursor-agent-foundation — read **AGENTS.md** and bootstrap standards into `~/path/to/my-app`.
-
-The agent should clone (or fetch), run **`scripts/apply-to-repo.sh`**, add **`AGENTS.md`**, commit in **your app**, then follow **`docs/CURSOR_AGENT_STANDARDS.md`** in that app.
+Optional: `/add-plugin pstack` + `/setup-pstack` on your machine (works **with** this foundation, not instead of it).
 
 ---
 

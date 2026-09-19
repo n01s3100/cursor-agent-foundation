@@ -51,7 +51,7 @@ Use when the human wants a **new or existing app repo** to get the same baseline
    git commit -m "Bootstrap Cursor agent foundation from cursor-agent-foundation"
    ```
 
-5. **Work in the target repo** using [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md). **Mandatory skills** (not optional when triggered):
+5. **Work in the target repo** using **[docs/WORKFLOW_ROUTER.md](docs/WORKFLOW_ROUTER.md)** first, then [docs/CURSOR_AGENT_STANDARDS.md](docs/CURSOR_AGENT_STANDARDS.md). If the human uses Cursor **pstack**, `/poteto-mode` replaces the foundation pre-build block; Matt skills still apply when the router says so. **Mandatory skills** (not optional when triggered):
    - **Tier C / fuzzy domain / plan stress-test** → [skills/engineering/grill-with-docs/SKILL.md](skills/engineering/grill-with-docs/SKILL.md) in the **target** repo.
    - **Refactors / boundaries / deepening** → [skills/engineering/improve-codebase-architecture/SKILL.md](skills/engineering/improve-codebase-architecture/SKILL.md) in the **target** repo.
 6. Add **project-specific** `.cursor/rules/*.mdc` only when the stack or product needs them.

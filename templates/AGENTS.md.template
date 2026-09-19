@@ -1,16 +1,20 @@
 # Agents
 
-**Universal engineering standards:** [`docs/CURSOR_AGENT_STANDARDS.md`](docs/CURSOR_AGENT_STANDARDS.md) — tiers, pre-build loop, completion.
+**Start here:** [`docs/WORKFLOW_ROUTER.md`](docs/WORKFLOW_ROUTER.md) — picks foundation vs **Cursor pstack** vs Matt skills (no double planning).
 
-**Mandatory skills (when triggers apply — see standards doc):**
+**Standards:** [`docs/CURSOR_AGENT_STANDARDS.md`](docs/CURSOR_AGENT_STANDARDS.md)
 
-- [grill-with-docs](skills/engineering/grill-with-docs/SKILL.md) — domain clarity, Tier C, stress-test plans
-- [improve-codebase-architecture](skills/engineering/improve-codebase-architecture/SKILL.md) — refactors, boundaries, deepening
+**Mandatory when router triggers:**
 
-**Always-on Cursor rule:** `.cursor/rules/cursor-agent-standards.mdc`.
+- [grill-with-docs](skills/engineering/grill-with-docs/SKILL.md) — domain / Tier C
+- [improve-codebase-architecture](skills/engineering/improve-codebase-architecture/SKILL.md) — boundaries / deepening
 
-Add project-specific onboarding and stack rules below (or as additional `.cursor/rules/*.mdc`).
+**Cursor (non-trivial):** `/poteto-mode <goal>. Verify: <check>.` (requires [pstack](https://cursor.com/marketplace/cursor/pstack) plugin)
+
+**Always-on rule:** `.cursor/rules/cursor-agent-standards.mdc`
+
+Add project-specific sections below.
 
 ---
 
-<!-- Project-specific sections go here -->
+<!-- Project-specific onboarding -->

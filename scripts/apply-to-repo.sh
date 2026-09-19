@@ -17,6 +17,7 @@ TARGET="$(cd "$1" && pwd)"
 
 mkdir -p "$TARGET/docs" "$TARGET/.cursor/rules" "$TARGET/skills/engineering"
 install -m 0644 "$ROOT/docs/CURSOR_AGENT_STANDARDS.md" "$TARGET/docs/CURSOR_AGENT_STANDARDS.md"
+install -m 0644 "$ROOT/docs/WORKFLOW_ROUTER.md" "$TARGET/docs/WORKFLOW_ROUTER.md"
 install -m 0644 "$ROOT/.cursor/rules/cursor-agent-standards.mdc" "$TARGET/.cursor/rules/cursor-agent-standards.mdc"
 rm -rf "$TARGET/skills/engineering/grill-with-docs" "$TARGET/skills/engineering/improve-codebase-architecture"
 cp -R "$ROOT/skills/engineering/grill-with-docs" "$TARGET/skills/engineering/"
@@ -27,6 +28,7 @@ fi
 
 echo "✅ Applied foundation to: $TARGET"
 echo "   - docs/CURSOR_AGENT_STANDARDS.md"
+echo "   - docs/WORKFLOW_ROUTER.md"
 echo "   - .cursor/rules/cursor-agent-standards.mdc"
 echo "   - skills/engineering/grill-with-docs/"
 echo "   - skills/engineering/improve-codebase-architecture/"

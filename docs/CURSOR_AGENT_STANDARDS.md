@@ -6,6 +6,8 @@ Repo-agnostic playbook for AI agents and developers. **Stack- or product-specifi
 
 **Vendored skills (full workflows):** `skills/engineering/grill-with-docs/` and `skills/engineering/improve-codebase-architecture/` (from [mattpocock/skills](https://github.com/mattpocock/skills)). When triggers below apply, follow those **SKILL.md** files in full — summaries in this doc are not enough.
 
+**Cursor [pstack](https://cursor.com/marketplace/cursor/pstack) (Lauren Tan):** use together with this foundation — not instead of it. **Agents: read [`WORKFLOW_ROUTER.md`](WORKFLOW_ROUTER.md) first** to choose foundation vs `/poteto-mode` vs Matt skills without duplicate planning.
+
 ---
 
 ## Agent Skills compliance
@@ -80,8 +82,9 @@ Examples: typos, obvious one-liners, single config knobs, copy tweaks.
 
 Anything that changes behaviour, data, APIs, auth, money, concurrency, or cross-cutting state — but not a new system.
 
-- **Before code:** short **pre-build block** (below); human can reply “go” or confirm bullets — no formal PRD unless they ask.
-- **Mandatory skills:** **grill-with-docs** if domain language is fuzzy; **improve-codebase-architecture** if the change is primarily structural refactor across modules.
+- **Before code:** short **pre-build block** (below) **unless** [**pstack is active**](WORKFLOW_ROUTER.md#step-2--is-pstack-driving-this-turn) — then the playbook replaces the pre-build block; human can reply “go” or confirm playbook todos.
+- **Cursor (recommended):** **`/poteto-mode`** with goal + verification — see [WORKFLOW_ROUTER.md](WORKFLOW_ROUTER.md).
+- **Mandatory skills:** **grill-with-docs** if domain language is fuzzy; **improve-codebase-architecture** if the change is primarily structural refactor across modules (runs **before** pstack Refactoring/architect when both apply).
 - **After code:** definition of done (below) + **commit / push / deploy** when the repo defines how (ask if unclear).
 
 ### Tier C — Greenfield or large architectural change
@@ -97,7 +100,9 @@ New subsystem, major boundary moves, or “how the whole thing is shaped.”
 
 ## Pre-build confirmation (Tier B and above)
 
-Before implementation, produce:
+**Skip this section when [pstack is active](WORKFLOW_ROUTER.md#step-2--is-pstack-driving-this-turn)** — the playbook already encodes plan and verification. Still run mandatory Matt skills from [WORKFLOW_ROUTER.md](WORKFLOW_ROUTER.md#step-3--mandatory-matt-skills-foundation--not-replaced-by-pstack) when triggered.
+
+Before implementation (foundation-only path), produce:
 
 1. **Problem** — What is wrong or missing? Who is affected? What is explicitly **out of scope**?
 2. **Approach** — Steps and **which areas/files** you expect to touch (high level).
