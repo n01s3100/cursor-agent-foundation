@@ -90,6 +90,8 @@ sync_one() {
     docs/CURSOR_AGENT_STANDARDS.md \
     docs/WORKFLOW_ROUTER.md \
     docs/OUT_OF_BOX_WORKFLOW.md \
+    docs/data_modeling.md \
+    docs/adr/template.md \
     .cursor/rules/cursor-agent-standards.mdc \
     .cursor/rules/workflow-stack-harmony.mdc \
     skills/README.md \
